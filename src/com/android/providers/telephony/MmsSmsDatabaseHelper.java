@@ -1722,6 +1722,12 @@ public class MmsSmsDatabaseHelper extends SQLiteOpenHelper {
             } finally {
                 db.endTransaction();
             }
+            // fall through
+        case 67:
+            if (currentVersion <= 67) {
+                return;
+            }
+            // 67 was adding RcsProvider, but that was removed.
             return;
         }
 
